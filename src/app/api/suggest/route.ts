@@ -42,7 +42,7 @@ const fallbackQuestions = {
   "future": "What are you most looking forward to in the next few years?||How do you think daily life will be different in 50 years?||What's one goal you're currently working toward?"
 };
 
-export async function GET(req: Request) {
+export async function GET() {
   try {
     // Select a random topic
     const randomTopic = topics[Math.floor(Math.random() * topics.length)];
