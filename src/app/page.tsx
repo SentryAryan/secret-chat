@@ -28,6 +28,7 @@ import { setMessages } from "../redux/slices/messages-slice";
 import { setUnAuthorized } from "../redux/slices/unAuthorized-slice";
 
 export default function HomePage() {
+  console.log("HomePage");
   const router = useRouter();
   const {
     data: session,
