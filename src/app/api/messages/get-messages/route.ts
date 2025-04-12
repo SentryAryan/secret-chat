@@ -8,6 +8,7 @@ import { dbConnect } from "@/lib/dbConnect";
 
 export const GET = errorHandler(async (request: NextRequest) => {
   await dbConnect();
+  
   const token = await getToken({
     req: request,
     secret: process.env.AUTH_SECRET,

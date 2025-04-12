@@ -8,6 +8,7 @@ import { dbConnect } from "@/lib/dbConnect";
 
 export const DELETE = errorHandler(async (request: NextRequest) => {
   await dbConnect();
+  
   const token = await getToken({ req: request });
   if (!token) {
     return res.json(
@@ -17,6 +18,7 @@ export const DELETE = errorHandler(async (request: NextRequest) => {
       { status: 401 }
     );
   }
+  
   const { id, messageId } = await request.json();
   const receiverUser = await User.findById(id);
 

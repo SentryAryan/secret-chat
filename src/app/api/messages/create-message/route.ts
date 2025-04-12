@@ -10,13 +10,6 @@ import { dbConnect } from "@/lib/dbConnect";
 
 export const POST = errorHandler(async (request: NextRequest) => {
   await dbConnect();
-  const token = await getToken({ req: request });
-  if (!token) {
-    return res.json(
-      generateApiResponse(401, "Unauthorized, please login again", {}, ["Unauthorized, please login again"]),
-      { status: 401 }
-    );
-  }
 
   const { id, content }: z.infer<typeof messageSchema> = await request.json();
   const receiverUser = await User.findById(id);
