@@ -4,8 +4,6 @@ import { generateApiResponse } from "@/helpers/api-response.helper";
 import { getToken } from "next-auth/jwt";
 import User from "@/models/user.model";
 import Message from "@/models/message.model";
-import { messageSchema } from "@/schemas/message.schema";
-import { z } from "zod";
 import { dbConnect } from "@/lib/dbConnect";
 
 export const DELETE = errorHandler(async (request: NextRequest) => {
