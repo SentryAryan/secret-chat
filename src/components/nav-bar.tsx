@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { signIn, signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
+
 const NavBar = () => {
   const { data: session, status } = useSession();
   console.log(session?.user);
@@ -13,7 +14,9 @@ const NavBar = () => {
           <div className="bg-gradient-to-br from-indigo-500 to-indigo-700 p-2 rounded-lg shadow-lg transform group-hover:scale-105 transition-all duration-300">
             <FontAwesomeIcon icon={faLock} className="w-5 h-5 text-white" />
           </div>
-          <h1 className="text-2xl font-bold text-white bg-gradient-to-r from-indigo-400 to-indigo-600 bg-clip-text text-transparent group-hover:from-indigo-300 group-hover:to-indigo-500 transition-all duration-300">Secret-Chat</h1>
+          <h1 className="text-2xl font-bold text-white bg-gradient-to-r from-indigo-400 to-indigo-600 bg-clip-text  group-hover:from-indigo-300 group-hover:to-indigo-500 transition-all duration-300">
+            Secret-Chat
+          </h1>
         </Link>
 
         {status === "authenticated" ? (
@@ -30,7 +33,9 @@ const NavBar = () => {
                 <div className="absolute -bottom-0.5 -right-0.5 bg-green-500 w-3 h-3 rounded-full border-2 border-gray-900 animate-pulse"></div>
               </div>
               <div className="hidden md:block">
-                <p className="text-sm font-medium text-white">{session?.user?.name}</p>
+                <p className="text-sm font-medium text-white">
+                  {session?.user?.name}
+                </p>
                 <p className="text-xs text-gray-400">{session?.user?.email}</p>
               </div>
             </div>
